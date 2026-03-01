@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="mb-4">
+    <a class="text-decoration-none" href="/projects/">← Back to Projects</a>
+</div>
+
+<header class="mb-4">
+    <h1 class="mb-2">{{ page.title }}</h1>
+    {% if page.tagline %}
+    <p class="lead mb-2">{{ page.tagline }}</p>
+    {% endif %}
+
+    <div class="d-flex flex-wrap gap-2">
+        {% if page.stack %}
+        {% for tech in page.stack %}
+        <span class="badge text-bg-light border">{{ tech }}</span>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="mt-3 d-flex flex-wrap gap-2">
+        {% if page.repo %}
+        <a class="btn btn-outline-dark btn-sm" href="{{ page.repo }}" target="_blank" rel="noopener">Repo</a>
+        {% endif %}
+        {% if page.live %}
+        <a class="btn btn-dark btn-sm" href="{{ page.live }}" target="_blank" rel="noopener">Live Demo</a>
+        {% endif %}
+    </div>
+</header>
+
+<hr class="my-4" />
+
+<article class="project-content">
+    {{ content }}
+</article>
